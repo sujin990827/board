@@ -1,7 +1,10 @@
 package com.study.board.domain.item;
+import com.study.board.domain.Category;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,4 +20,7 @@ public abstract class Item {
     private String name;
     private int price;
     private int stickQuantity;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 }
