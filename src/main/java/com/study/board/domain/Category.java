@@ -25,7 +25,7 @@ public class Category {
     private List<Item> items = new ArrayList<>();
 
     //연관관계 메서드 계층형이기때문
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
