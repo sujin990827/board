@@ -24,7 +24,6 @@ public class Member {
     private Address address;
 
     @OneToMany(mappedBy = "member")  //오더 테이블에 있는 멤버 필드에 의해서 맵핑이 된 것이다
-    @JoinColumn(name = "member_id")
     private List<Order> orders = new ArrayList<>();
 
 }
