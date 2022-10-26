@@ -8,6 +8,8 @@ import com.study.board.domain.item.Item;
 import com.study.board.repository.ItemRepository;
 import com.study.board.repository.MemberRepository;
 import com.study.board.repository.OrderRepository;
+import com.study.board.repository.OrderSearch;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +26,7 @@ public class OrderService {
 
     //주문
     @Transactional
-    public Long Order(Long memberId, Long itemId, int count){
+    public Long order(Long memberId, Long itemId, int count){
 
         //엔티티 조회
         Member member = memberRepository.findOne(memberId);
@@ -54,7 +56,7 @@ public class OrderService {
     }
 
     //검색
-//    public List<Order> findOrders(OrderSearch orderSearch){
-//        return orderRepository.findAll(orderSearch);
-//    }
+   public List<Order> findOrders(OrderSearch orderSearch){
+       return orderRepository.findAllByString(orderSearch);
+   }
 }
